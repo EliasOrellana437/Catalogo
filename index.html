@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - Don Daniel</title>
+    
+    <!-- Tailwind CSS desde CDN (Funciona de inmediato sin instalar nada) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Vinculamos tu archivo app.js para los futuros filtros -->
+    <script src="app.js" defer></script>
+</head>
+
+<!-- 1. ENCABEZADO / NAVBAR -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo o Nombre del negocio -->
+            <h1 class="text-2xl font-black text-slate-800 tracking-tight">
+                Don<span class="text-emerald-600">Daniel</span>
+            </h1>
+            
+            <!-- Navegación simple -->
+            <nav class="space-x-6">
+                <a href="#catalogo" class="text-sm font-semibold text-slate-600 hover:text-emerald-600 transition-colors duration-300">Catálogo</a>
+                <a href="#contacto" class="text-sm font-semibold text-slate-600 hover:text-emerald-600 transition-colors duration-300">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 2. SECCIÓN HERO / BIENVENIDA -->
+    <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950 text-white py-20 px-6 text-center">
+        <div class="max-w-3xl mx-auto">
+            <!-- Etiqueta superior -->
+            <span class="bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-emerald-500/20">
+                Catálogo Oficial
+            </span>
+            
+            <h2 class="text-4xl md:text-5xl font-extrabold mt-4 mb-6 tracking-tight leading-tight">
+                Descubre la variedad de nuestros mejores productos
+            </h2>
+            
+            <p class="text-base md:text-lg text-slate-300 mb-8 max-w-xl mx-auto font-normal leading-relaxed">
+                Explora de forma rápida nuestro catálogo digital. Si te interesa algún artículo, contáctanos directamente con un solo clic.
+            </p>
+            
+            <!-- Botón de acción -->
+            <a href="#catalogo" class="inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg shadow-emerald-900/30 transition-all duration-300 transform hover:-translate-y-0.5">
+                Ver Productos
+            </a>
+        </div>
+    </section>
+</html>
