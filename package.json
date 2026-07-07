@@ -1,0 +1,24 @@
+{
+  "name": "don-daniel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+"scripts": {
+    "build-tailwind": "tailwindcss -i ./styles.css -o ./dist/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EliasOrellana437/Catalogo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/EliasOrellana437/Catalogo/issues"
+  },
+  "homepage": "https://github.com/EliasOrellana437/Catalogo#readme",
+  "devDependencies": {
+    "tailwindcss": "^4.3.2"
+  }
+}
