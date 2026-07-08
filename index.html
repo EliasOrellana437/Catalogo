@@ -340,11 +340,13 @@
         <!-- 2. Agregamos event.stopPropagation() para que no se cierre si das clic en la parte blanca -->
         <div onclick="event.stopPropagation()" class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-100 transform scale-95 transition-transform duration-300 relative pt-2">
             
-            <!-- Botón Cerrar (X) - 3. Le pusimos z-50 y un fondo blanco para que NUNCA se oculte detrás de la foto -->
-            <button onclick="cerrarModal()" class="absolute top-4 right-4 z-50 text-slate-500 hover:text-slate-800 bg-white hover:bg-slate-100 shadow-md border border-slate-100 p-2 rounded-full transition-all cursor-pointer">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+<!-- Botón Cerrar (X) - Optimizado para máximo contraste -->
+            <button onclick="cerrarModal()" class="absolute top-4 right-4 z-50 text-slate-700 hover:text-slate-950 bg-white hover:bg-slate-50 shadow-lg border-2 border-slate-200/90 p-2 rounded-full transition-all transform hover:scale-105 active:scale-95 cursor-pointer" title="Cerrar ventana">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
             </button>
-
+            
             <!-- Contenido Dinámico que inyectará JavaScript -->
             <div id="modal-contenido" class="p-6 space-y-4">
                 <!-- Se llenará automáticamente al hacer clic -->
