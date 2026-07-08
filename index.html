@@ -11,8 +11,9 @@
     <!-- Vinculamos tu archivo app.js para los futuros filtros -->
     <script src="app.js" defer></script>
 </head>
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen">
 
-<!-- 1. ENCABEZADO / NAVBAR -->
+    <!-- 1. ENCABEZADO / NAVBAR -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Logo o Nombre del negocio -->
@@ -31,23 +32,103 @@
     <!-- 2. SECCIÓN HERO / BIENVENIDA -->
     <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950 text-white py-20 px-6 text-center">
         <div class="max-w-3xl mx-auto">
-            <!-- Etiqueta superior -->
             <span class="bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-emerald-500/20">
                 Catálogo Oficial
             </span>
-            
             <h2 class="text-4xl md:text-5xl font-extrabold mt-4 mb-6 tracking-tight leading-tight">
                 Descubre la variedad de nuestros mejores productos
             </h2>
-            
             <p class="text-base md:text-lg text-slate-300 mb-8 max-w-xl mx-auto font-normal leading-relaxed">
                 Explora de forma rápida nuestro catálogo digital. Si te interesa algún artículo, contáctanos directamente con un solo clic.
             </p>
-            
-            <!-- Botón de acción -->
             <a href="#catalogo" class="inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg shadow-emerald-900/30 transition-all duration-300 transform hover:-translate-y-0.5">
                 Ver Productos
             </a>
         </div>
     </section>
+
+    <!-- 3. SECCIÓN PRINCIPAL DEL CATÁLOGO -->
+    <main id="catalogo" class="max-w-7xl mx-auto px-6 py-12">
+        
+        <!-- Contenedor de Filtros (Botones) -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12">
+            <button onclick="filtrarProductos('todos')" id="btn-todos" class="px-5 py-2.5 rounded-xl text-sm font-bold bg-emerald-600 text-white shadow-md transition-all duration-300">
+                Todos los Productos
+            </button>
+            <button onclick="filtrarProductos('categoria-1')" id="btn-categoria-1" class="px-5 py-2.5 rounded-xl text-sm font-semibold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 shadow-sm transition-all duration-300">
+                Categoría A
+            </button>
+            <button onclick="filtrarProductos('categoria-2')" id="btn-categoria-2" class="px-5 py-2.5 rounded-xl text-sm font-semibold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 shadow-sm transition-all duration-300">
+                Categoría B
+            </button>
+        </div>
+
+<!-- Cuadrícula (Grid) de Tarjetas de Productos -->
+ <!-- Aui tambien se coloca el numero de contacto (recordar cambiar a futuro) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            
+            <!-- TARJETA PRODUCTO 1 -->
+            <div class="card-producto bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-categoria="categoria-1">
+                <div class="relative overflow-hidden aspect-square bg-slate-100">
+                    <img src="https://picsum.photos/id/20/600/600" alt="Producto Alpha" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <span class="absolute top-3 right-3 bg-slate-900/75 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md backdrop-blur-sm">
+                        Ref: #001
+                    </span>
+                </div>
+                <div class="p-5">
+                    <span class="text-[11px] font-bold text-emerald-600 uppercase tracking-wider">Categoría A</span>
+                    <h3 class="text-lg font-bold text-slate-800 mt-1 mb-2 line-clamp-1 group-hover:text-emerald-600 transition-colors">
+                        Producto Muestra Alpha
+                    </h3>
+                    <p class="text-xs text-slate-500 leading-relaxed mb-4 line-clamp-2">
+                        Descripción de prueba para el primer producto de la Categoría A.
+                    </p>
+                    <div class="flex items-center justify-between pt-3 border-t border-slate-50">
+                        <span class="text-xl font-black text-slate-900">$25.00</span>
+                        <!-- Enlace con tu número personalizado -->
+                        <a href="https://wa.me/50374723515?text=Hola,%20solicito%20información%20del%20Producto%20Alpha" target="_blank" class="inline-flex items-center justify-center bg-emerald-500 hover:bg-emerald-600 text-white p-2.5 rounded-xl shadow-md shadow-emerald-500/10 transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-4.846c1.66.986 3.296 1.515 5.358 1.517 5.4 0 9.792-4.383 9.795-9.774.002-2.611-1.011-5.067-2.853-6.911-1.842-1.844-4.29-2.858-6.905-2.859-5.4 0-9.793 4.384-9.797 9.776-.001 2.13.565 4.137 1.639 5.877L1.13 21.127l4.316-1.131-.22-.131z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA PRODUCTO 2 -->
+            <div class="card-producto bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-categoria="categoria-2">
+                <div class="relative overflow-hidden aspect-square bg-slate-100">
+                    <img src="https://picsum.photos/id/48/600/600" alt="Producto Beta" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <span class="absolute top-3 right-3 bg-slate-900/75 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md backdrop-blur-sm">
+                        Ref: #002
+                    </span>
+                </div>
+                <div class="p-5">
+                    <span class="text-[11px] font-bold text-emerald-600 uppercase tracking-wider">Categoría B</span>
+                    <h3 class="text-lg font-bold text-slate-800 mt-1 mb-2 line-clamp-1 group-hover:text-emerald-600 transition-colors">
+                        Producto Muestra Beta
+                    </h3>
+                    <p class="text-xs text-slate-500 leading-relaxed mb-4 line-clamp-2">
+                        Descripción de prueba para el segundo producto de la Categoría B.
+                    </p>
+                    <div class="flex items-center justify-between pt-3 border-t border-slate-50">
+                        <span class="text-xl font-black text-slate-900">$45.00</span>
+                        <!-- Enlace con tu número personalizado -->
+                        <a href="https://wa.me/50374723515?text=Hola,%20solicito%20información%20del%20Producto%20Beta" target="_blank" class="inline-flex items-center justify-center bg-emerald-500 hover:bg-emerald-600 text-white p-2.5 rounded-xl shadow-md shadow-emerald-500/10 transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-4.846c1.66.986 3.296 1.515 5.358 1.517 5.4 0 9.792-4.383 9.795-9.774.002-2.611-1.011-5.067-2.853-6.911-1.842-1.844-4.29-2.858-6.905-2.859-5.4 0-9.793 4.384-9.797 9.776-.001 2.13.565 4.137 1.639 5.877L1.13 21.127l4.316-1.131-.22-.131z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+            <!-- Aquí duplicaremos más adelante las demás tarjetas (2 al 10) -->
+
+        </div>
+    </main>
+
+</body>
 </html>
