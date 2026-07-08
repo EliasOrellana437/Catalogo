@@ -91,15 +91,42 @@ function subirArriba() {
 // ==========================================
 // 4. FUNCIÓN: VENTANA EMERGENTE (MODAL)
 // ==========================================
-function abrirModal(titulo, desc, imgSrc, ref, precio, linkWa) {
+// Variable global para controlar el carrusel de imágenes dentro del modal
+let imagenesActuales = [];
+let indiceImagenActual = 0;
+
+function abrirModal(titulo, desc, listaImagenes, ref, precio, linkWa) {
     const modal = document.getElementById('modal-detalle');
     const contenido = document.getElementById('modal-contenido');
     
-    // Inyectamos la estructura visual detallada del producto dentro del modal
+    // Guardamos la lista de imágenes recibida en nuestra variable global
+    imagenesActuales = listaImagenes;
+    indiceImagenActual = 0; // Siempre empezamos mostrando la primera imagen
+
+    // Inyectamos la estructura base con el contenedor de imágenes y las flechas de navegación
     contenido.innerHTML = `
-        <div class="rounded-xl overflow-hidden aspect-video bg-slate-50 mb-4">
-            <img src="${imgSrc}" class="w-full h-full object-cover" alt="${titulo}">
+        <!-- Contenedor del Carrusel -->
+        <div class="relative rounded-xl overflow-hidden aspect-video bg-slate-100 group/carrusel mb-4">
+            <!-- Imagen del Carrusel -->
+            <img id="modal-img-slider" src="${imagenesActuales[0]}" class="w-full h-full object-cover transition-opacity duration-300 ease-in-out" alt="${titulo}">
+            
+            <!-- Flecha Izquierda (Solo visible si hay más de 1 imagen) -->
+            <button onclick="cambiarImagenCarrusel(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-900/40 hover:bg-slate-900/70 text-white p-2 rounded-full backdrop-blur-sm transition-all opacity-0 group-hover/carrusel:opacity-100 z-10 flex items-center justify-center ${imagenesActuales.length <= 1 ? 'hidden' : ''}">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            
+            <!-- Flecha Derecha (Solo visible si hay más de 1 imagen) -->
+            <button onclick="cambiarImagenCarrusel(1)" class="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-900/40 hover:bg-slate-900/70 text-white p-2 rounded-full backdrop-blur-sm transition-all opacity-0 group-hover/carrusel:opacity-100 z-10 flex items-center justify-center ${imagenesActuales.length <= 1 ? 'hidden' : ''}">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+
+            <!-- Indicador numérico de imagen (Ej: 1 / 3) -->
+            <div id="carrusel-indicador" class="absolute bottom-3 right-3 bg-slate-900/60 text-white text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-sm ${imagenesActuales.length <= 1 ? 'hidden' : ''}">
+                1 / ${imagenesActuales.length}
+            </div>
         </div>
+
+        <!-- Información del Producto -->
         <div class="space-y-2">
             <div class="flex justify-between items-center">
                 <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md">${ref}</span>
@@ -115,9 +142,39 @@ function abrirModal(titulo, desc, imgSrc, ref, precio, linkWa) {
         </div>
     `;
 
-    // Animación para mostrar el modal quitando las clases de Tailwind de ocultado
+    // Mostrar el modal con su animación suave
     modal.classList.remove('opacity-0', 'pointer-events-none');
     modal.querySelector('div').classList.remove('scale-95');
+}
+
+// Nueva función interna para navegar por las imágenes del producto
+function cambiarImagenCarrusel(direccion) {
+    if (imagenesActuales.length <= 1) return;
+
+    const imgSlider = document.getElementById('modal-img-slider');
+    const indicador = document.getElementById('carrusel-indicador');
+    
+    if (!imgSlider) return;
+
+    // 1. Desvanecer la imagen actual bajando la opacidad a 0
+    imgSlider.classList.add('opacity-0');
+
+    // 2. Esperar 200ms (lo que tarda el desvanecimiento) para cambiar la información de fondo
+    setTimeout(() => {
+        // Calculamos el nuevo índice circularmente
+        indiceImagenActual += direccion;
+        if (indiceImagenActual >= imagenesActuales.length) indiceImagenActual = 0;
+        if (indiceImagenActual < 0) indiceImagenActual = imagenesActuales.length - 1;
+
+        // Cambiamos la fuente de la imagen mientras está invisible
+        imgSlider.src = imagenesActuales[indiceImagenActual];
+        
+        // Actualizamos el contador numérico
+        if (indicador) indicador.textContent = `${indiceImagenActual + 1} / ${imagenesActuales.length}`;
+
+        // 3. Volver a iluminar la nueva imagen subiendo la opacidad a 100
+        imgSlider.classList.remove('opacity-0');
+    }, 200); // 200 milisegundos de espera exacta
 }
 
 function cerrarModal() {
