@@ -27,66 +27,69 @@
 
 <body class="bg-gray-50 text-gray-800 font-sans min-h-screen">
 
-    <!-- 1. ENCABEZADO / NAVBAR -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Logo o Nombre del negocio -->
-            <h1 class="text-2xl font-black text-slate-800 tracking-tight">
-                Don<span class="text-emerald-600">Daniel</span>
-            </h1>
-            
-            <!-- Navegación simple -->
-            <nav class="space-x-6">
-                <a href="#catalogo" class="text-sm font-semibold text-slate-600 hover:text-emerald-600 transition-colors duration-300">Catálogo</a>
-                <a href="#contacto" class="text-sm font-semibold text-slate-600 hover:text-emerald-600 transition-colors duration-300">Contacto</a>
-            </nav>
-        </div>
+<!-- 1. CABECERA / MENÚ DE NAVEGACIÓN -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-slate-100/80">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Nombre de la marca con tono Teal de salud -->
+            <div class="text-xl font-black tracking-tight text-slate-800">
+                Don<span class="text-teal-600">Daniel</span>
+            </div>
+            <div class="flex items-center gap-6 text-sm font-semibold text-slate-600">
+                <a href="#catalogo" class="hover:text-teal-600 transition-colors">Medicamentos</a>
+                <a href="#contacto" class="hover:text-teal-600 transition-colors">Contacto</a>
+            </div>
+        </nav>
     </header>
 
-    <!-- 2. SECCIÓN HERO / BIENVENIDA -->
-    <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950 text-white py-20 px-6 text-center">
-        <div class="max-w-3xl mx-auto">
-            <span class="bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-emerald-500/20">
-                Catálogo Oficial
-            </span>
-            <h2 class="text-4xl md:text-5xl font-extrabold mt-4 mb-6 tracking-tight leading-tight">
-                Descubre la variedad de nuestros mejores productos
-            </h2>
-            <p class="text-base md:text-lg text-slate-300 mb-8 max-w-xl mx-auto font-normal leading-relaxed">
-                Explora de forma rápida nuestro catálogo digital. Si te interesa algún artículo, contáctanos directamente con un solo clic.
-            </p>
-            <a href="#catalogo" class="inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg shadow-emerald-900/30 transition-all duration-300 transform hover:-translate-y-0.5">
-                Ver Productos
-            </a>
-        </div>
-    </section>
+    <main class="bg-slate-50 min-h-screen">
+        
+<!-- 2. SECCIÓN PRINCIPAL / HERO OPTIMIZADO (CON MÁS COLOR) -->
+        <section class="relative bg-gradient-to-br from-teal-100/70 via-slate-50 to-emerald-100/60 pt-20 pb-16 overflow-hidden px-4 border-b border-slate-200">
+            
+            <!-- Decoraciones de fondo: Subimos la opacidad para que los resplandores sean muy visibles -->
+            <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-teal-300/40 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-[-10%] right-[-5%] w-96 h-96 bg-emerald-300/30 rounded-full blur-3xl pointer-events-none"></div>
 
-    <!-- 3. SECCIÓN PRINCIPAL DEL CATÁLOGO -->
-    <main id="catalogo" class="max-w-7xl mx-auto px-6 py-12">
+            <!-- Patrón de malla de puntos/líneas: Más oscuro para notar la textura médica -->
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1.5px,transparent_1.5px),linear-gradient(to_bottom,#e2e8f0_1.5px,transparent_1.5px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_80%,transparent_100%)] opacity-100 pointer-events-none"></div>
 
-        <!-- Barra de Búsqueda en Tiempo Real -->
-        <div class="max-w-md mx-auto mb-8">
-            <div class="relative">
-                <input type="text" id="buscador" onkeyup="buscarProductos()" placeholder="Buscar producto por nombre..." class="w-full px-5 py-3 pl-12 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 focus:outline-none shadow-sm transition-all text-sm text-slate-700">
-                <!-- Icono de Lupa -->
-                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6">
+                <!-- Saludo de marca -->
+                <p class="text-xs font-bold uppercase tracking-[0.25em] text-teal-700 bg-teal-100/90 px-4 py-1.5 rounded-full inline-block border border-teal-200 backdrop-blur-sm shadow-sm">
+                    Bienvenidos a la experiencia digital de
+                </p>
+
+                <!-- Título Principal -->
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight leading-tight">
+                    Encuentra tus medicamentos y <br class="hidden sm:inline">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">productos de salud</span>
+                </h1>
+
+                <p class="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto font-semibold leading-relaxed">
+                    Explora nuestro catálogo oficial de forma rápida. Si necesitas consultar disponibilidad o solicitar un medicamento, escrébenos directamente con un solo clic.
+                </p>
+            </div>
+        </section>
+        
+        <!-- 3. SECCIÓN CATÁLOGO (FILTROS Y BUSCADOR) -->
+        <section id="catalogo" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            
+            <!-- Barra de Búsqueda enfocada a Teal -->
+            <div class="max-w-md mx-auto mb-8">
+                <div class="relative">
+                    <input type="text" id="buscador" onkeyup="buscarProductos()" placeholder="Buscar medicamento..." class="w-full px-5 py-3 pl-12 rounded-xl border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none shadow-sm transition-all text-sm text-slate-700">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Contenedor de Filtros (Botones) -->
-        <div class="flex flex-wrap justify-center gap-3 mb-12">
-            <button onclick="filtrarProductos('todos')" id="btn-todos" class="px-5 py-2.5 rounded-xl text-sm font-bold bg-emerald-600 text-white shadow-md transition-all duration-300">
-                Todos los Productos
-            </button>
-            <button onclick="filtrarProductos('categoria-1')" id="btn-categoria-1" class="px-5 py-2.5 rounded-xl text-sm font-semibold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 shadow-sm transition-all duration-300">
-                Categoría A
-            </button>
-            <button onclick="filtrarProductos('categoria-2')" id="btn-categoria-2" class="px-5 py-2.5 rounded-xl text-sm font-semibold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 shadow-sm transition-all duration-300">
-                Categoría B
-            </button>
-        </div>
+            <!-- Botones de Filtros con estados iniciales adaptados a Teal -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <button id="btn-todos" onclick="filtrarProductos('todos')" class="px-5 py-2.5 rounded-xl text-sm font-bold bg-teal-600 text-white shadow-md transition-all duration-300">Todos los Productos</button>
+                <button id="btn-categoria-1" onclick="filtrarProductos('categoria-1')" class="px-5 py-2.5 rounded-xl text-sm font-semibold bg-white text-slate-600 border border-slate-200 shadow-sm hover:border-teal-500 hover:text-teal-600 transition-all duration-300">Categoría A</button>
+                <button id="btn-categoria-2" onclick="filtrarProductos('categoria-2')" class="px-5 py-2.5 rounded-xl text-sm font-semibold bg-white text-slate-600 border border-slate-200 shadow-sm hover:border-teal-500 hover:text-teal-600 transition-all duration-300">Categoría B</button>
+            </div>
 
 <!-- Cuadrícula (Grid) de Tarjetas de Productos -->
  <!-- Aui tambien se coloca el numero de contacto (recordar cambiar a futuro) -->
